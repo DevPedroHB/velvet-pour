@@ -3,374 +3,374 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Modern Negra";
-    src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+	font-family: "Modern Negra";
+	src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
 }
 
 @theme {
-    --color-yellow: #e7d393;
-    --color-white-100: #efefef;
-    --font-sans: "Mona Sans", sans-serif;
-    --font-modern-negra: "Modern Negra", sans-serif;
-    --font-serif: "DM Serif Text", serif;
+	--color-yellow: #e7d393;
+	--color-white-100: #efefef;
+	--font-sans: "Mona Sans", sans-serif;
+	--font-modern-negra: "Modern Negra", sans-serif;
+	--font-serif: "DM Serif Text", serif;
 }
 
 html,
 body {
-    width: 100%;
-    background-color: black;
-    color: white;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+	width: 100%;
+	background-color: black;
+	color: white;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 @utility flex-center {
-    @apply flex justify-center items-center;
+	@apply flex justify-center items-center;
 }
 
 @utility col-center {
-    @apply flex flex-col justify-center items-center;
+	@apply flex flex-col justify-center items-center;
 }
 
 @utility abs-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 @utility text-gradient {
-    background: linear-gradient(to bottom, #ffffff, #898989);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+	background: linear-gradient(to bottom, #ffffff, #898989);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 @utility radial-gradient {
-    background: radial-gradient(
-            circle at center,
-            #434343 0%,
-            #000 50%,
-            transparent 100%
-    );
+	background: radial-gradient(
+		circle at center,
+		#434343 0%,
+		#000 50%,
+		transparent 100%
+	);
 }
 
 @utility masked-img {
-    mask-image: url("/images/mask-img.png");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: 50%;
+	mask-image: url("/images/mask-img.png");
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: 50%;
 }
 
 @layer components {
-    main {
-        @apply w-full overflow-x-hidden;
-    }
+	main {
+		@apply w-full overflow-x-hidden;
+	}
 
-    nav {
-        @apply fixed z-50 w-full;
+	nav {
+		@apply z-50 fixed w-full;
 
-        div {
-            @apply flex md:flex-row flex-col md:justify-between items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
-        }
+		div {
+			@apply flex md:flex-row flex-col md:justify-between items-center gap-5 mx-auto px-5 lg:px-0 py-5 container;
+		}
 
-        p {
-            @apply font-modern-negra text-3xl -mb-2;
-        }
+		p {
+			@apply -mb-2 font-modern-negra text-3xl;
+		}
 
-        a {
-            @apply cursor-pointer text-nowrap md:text-base text-sm;
-        }
+		a {
+			@apply text-sm md:text-base text-nowrap cursor-pointer;
+		}
 
-        ul {
-            @apply flex-center lg:gap-12 gap-7;
-        }
-    }
-
-    .noisy {
-        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
-    }
+		ul {
+			@apply flex-center gap-7 lg:gap-12;
+		}
+	}
+
+	.noisy {
+		@apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+	}
 
-    #hero {
-        @apply relative z-10 min-h-dvh w-full border border-transparent;
+	#hero {
+		@apply z-10 relative border border-transparent w-full min-h-dvh;
 
-        h1 {
-            @apply md:mt-32 mt-40 text-8xl md:text-[20vw] leading-none text-center font-modern-negra;
-        }
+		h1 {
+			@apply mt-40 md:mt-32 font-modern-negra md:text-[20vw] text-8xl text-center leading-none;
+		}
 
-        .left-leaf {
-            @apply absolute left-0 md:top-20 xl:top-36 2xl:top-52 md:bottom-auto -bottom-20 md:w-fit w-1/3;
-        }
+		.left-leaf {
+			@apply absolute left-0 md:top-20 xl:top-36 2xl:top-52 md:bottom-auto -bottom-20 md:w-fit w-1/3;
+		}
 
-        .right-leaf {
-            @apply absolute right-0 md:bottom-0 xl:top-0 2xl:top-12 top-1/2 md:w-fit w-24;
-        }
+		.right-leaf {
+			@apply absolute right-0 md:bottom-0 xl:top-0 2xl:top-12 top-1/2 md:w-fit w-24;
+		}
 
-        .body {
-            @apply container mx-auto absolute left-1/2 -translate-x-1/2 lg:bottom-20 top-auto md:top-[30vh] flex justify-between items-end px-5;
+		.body {
+			@apply container mx-auto absolute left-1/2 -translate-x-1/2 lg:bottom-20 top-auto md:top-[30vh] flex justify-between items-end px-5;
 
-            .content {
-                @apply flex lg:flex-row flex-col w-full gap-10 justify-between items-center lg:items-end mx-auto;
+			.content {
+				@apply flex lg:flex-row flex-col justify-between items-center lg:items-end gap-10 mx-auto w-full;
 
-                p:nth-of-type(2) {
-                    @apply font-modern-negra text-6xl text-yellow max-w-xl;
-                }
+				p:nth-of-type(2) {
+					@apply max-w-xl font-modern-negra text-yellow text-6xl;
+				}
 
-                p:last-of-type {
-                    @apply 2xl:text-start text-center;
-                }
+				p:last-of-type {
+					@apply text-center 2xl:text-start;
+				}
 
-                .view-cocktails {
-                    @apply space-y-5 text-lg lg:max-w-2xs md:max-w-xs w-full;
+				.view-cocktails {
+					@apply space-y-5 w-full lg:max-w-2xs md:max-w-xs text-lg;
 
-                    p {
-                        @apply text-left;
-                    }
+					p {
+						@apply text-left;
+					}
 
-                    a {
-                        @apply font-semibold opacity-80 2xl:text-start text-center hover:text-yellow;
-                    }
-                }
-            }
-        }
-    }
+					a {
+						@apply opacity-80 font-semibold hover:text-yellow text-center 2xl:text-start;
+					}
+				}
+			}
+		}
+	}
 
-    video {
-        @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
-    }
+	video {
+		@apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
+	}
 
-    #cocktails {
-        @apply relative min-h-dvh w-full overflow-hidden;
-
-        #c-left-leaf {
-            @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
-        }
-
-        #c-right-leaf {
-            @apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
-        }
-
-        .list {
-            @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-40 2xl:px-0 px-5;
-
-            .popular {
-                @apply space-y-8 w-full md:w-fit;
-            }
-
-            .loved {
-                @apply space-y-8 w-full md:w-fit pb-20 md:pb-0;
-            }
-
-            h2 {
-                @apply text-xl font-medium;
-            }
-
-            ul {
-                @apply space-y-8;
+	#cocktails {
+		@apply relative w-full min-h-dvh overflow-hidden;
+
+		#c-left-leaf {
+			@apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+		}
+
+		#c-right-leaf {
+			@apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+		}
+
+		.list {
+			@apply z-10 relative flex md:flex-row flex-col justify-between items-start gap-20 mx-auto px-5 2xl:px-0 pt-40 container;
+
+			.popular {
+				@apply space-y-8 w-full md:w-fit;
+			}
+
+			.loved {
+				@apply space-y-8 pb-20 md:pb-0 w-full md:w-fit;
+			}
+
+			h2 {
+				@apply font-medium text-xl;
+			}
+
+			ul {
+				@apply space-y-8;
 
-                li {
-                    @apply flex justify-between items-start;
+				li {
+					@apply flex justify-between items-start;
 
-                    h3 {
-                        @apply font-modern-negra 2xl:text-3xl text-xl text-yellow;
-                    }
-
-                    p {
-                        @apply text-sm;
-                    }
-
-                    span {
-                        @apply text-xl font-medium;
-                    }
-                }
-            }
-        }
-    }
-
-    #about {
-        @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
-
-        .content {
-            @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
-
-            h2 {
-                @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
-            }
-
-            .sub-content {
-                @apply md:col-span-4 space-y-5 flex flex-col justify-between;
+					h3 {
+						@apply font-modern-negra text-yellow text-xl 2xl:text-3xl;
+					}
+
+					p {
+						@apply text-sm;
+					}
+
+					span {
+						@apply font-medium text-xl;
+					}
+				}
+			}
+		}
+	}
+
+	#about {
+		@apply mx-auto px-5 2xl:px-0 py-28 min-h-screen container;
+
+		.content {
+			@apply gap-5 grid grid-cols-1 lg:grid-cols-12;
+
+			h2 {
+				@apply max-w-lg font-modern-negra text-5xl md:text-6xl;
+			}
+
+			.sub-content {
+				@apply flex flex-col justify-between space-y-5 md:col-span-4;
 
-                p {
-                    @apply text-lg;
-                }
+				p {
+					@apply text-lg;
+				}
 
-                div {
-                    @apply flex flex-col justify-between md:gap-2 gap-5;
+				div {
+					@apply flex flex-col justify-between gap-5 md:gap-2;
 
-                    span {
-                        @apply text-yellow font-bold text-5xl;
-                    }
-                }
-            }
-        }
-
-        .badge {
-            @apply inline-block rounded-full bg-white text-black px-4 py-2 text-sm font-medium mb-8;
-        }
-
-        .top-grid {
-            @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
-
-            > div {
-                @apply rounded-3xl overflow-hidden h-72 relative;
-            }
-
-            img {
-                @apply object-cover w-full h-full;
-            }
-        }
-
-        .bottom-grid {
-            @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
-
-            > div {
-                @apply rounded-3xl overflow-hidden h-72 relative;
-            }
-
-            img {
-                @apply object-cover w-full h-full;
-            }
-        }
-    }
-
-    #art {
-        @apply flex-center flex-col min-h-dvh p-5 mt-20 relative radial-gradient;
-
-        h2 {
-            @apply relative md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#505050] mb-8;
-        }
-
-        .content {
-            @apply flex md:flex-row flex-col justify-between md:mb-16 md:mt-0 mt-40 gap-10;
-        }
-
-        .cocktail-img {
-            @apply md:w-[60vw] w-full h-[50vh] md:h-[70vh] rounded-4xl overflow-hidden absolute top-0 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
-        }
-
-        .masked-container {
-            h2 {
-                @apply text-4xl md:text-5xl font-modern-negra text-center mb-10 text-white mt-32;
-            }
-
-            div {
-                @apply opacity-0 md:px-0 px-5 space-y-5 absolute md:bottom-5 bottom-52 left-1/2 -translate-x-1/2;
-
-                h3 {
-                    @apply md:text-5xl text-2xl text-center font-serif md:w-full w-80 text-white;
-                }
-
-                p {
-                    @apply text-lg text-center;
-                }
-            }
-        }
-    }
-
-    #menu {
-        @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient;
-
-        #m-left-leaf {
-            @apply object-contain absolute -bottom-20 left-0 md:w-fit w-1/3;
-        }
-
-        #m-right-leaf {
-            @apply object-contain absolute -top-40 right-0 md:w-fit w-1/4;
-        }
-
-        .cocktail-tabs {
-            @apply grid md:grid-cols-4 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
-
-            button {
-                @apply md:text-3xl text-xl pb-2 cursor-pointer hover:text-yellow hover:border-yellow border-b-1 transition-colors font-modern-negra;
-            }
-        }
-
-        .content {
-            @apply flex flex-col justify-between items-center container mx-auto relative;
-
-            .arrows {
-                @apply flex items-center justify-between w-full absolute;
-
-                button {
-                    @apply text-white hover:text-yellow cursor-pointer transition-colors max-w-36;
-
-                    span {
-                        @apply text-3xl font-modern-negra leading-none hidden md:block;
-                    }
-                }
-            }
-        }
-
-        .cocktail {
-            @apply flex-center mt-10;
-
-            img {
-                @apply object-contain h-[60vh];
-            }
-        }
-
-        .recipe {
-            @apply flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0;
-
-            .info {
-                @apply space-y-4 lg:translate-y-20;
-
-                #title {
-                    @apply font-modern-negra md:text-6xl text-3xl text-yellow max-w-40;
-                }
-            }
-
-            .details {
-                @apply space-y-5 md:max-w-md text-left;
-
-                h2 {
-                    @apply md:text-5xl text-3xl font-serif;
-                }
-
-                p {
-                    @apply md:text-lg pe-5;
-                }
-            }
-        }
-    }
-
-    #contact {
-        @apply relative md:mt-20 mt-0 px-4 text-center w-full overflow-hidden radial-gradient;
-
-        #f-left-leaf {
-            @apply absolute bottom-0 left-0 pointer-events-none lg:w-fit w-1/3;
-        }
-
-        #f-right-leaf {
-            @apply absolute top-0 right-0 pointer-events-none hidden lg:block;
-        }
-
-        .content {
-            @apply container mx-auto lg:py-14 2xl:py-32 py-16 flex flex-col justify-between gap-10 min-h-dvh;
-
-            h2 {
-                @apply lg:text-6xl 2xl:text-8xl text-5xl font-modern-negra md:translate-y-0 translate-y-5;
-            }
-
-            h3 {
-                @apply uppercase xl:text-base 2xl:text-lg text-base mb-2;
-            }
-
-            p {
-                @apply lg:text-2xl 2xl:text-3xl text-sm;
-            }
-        }
-
-        .drink-img {
-            @apply absolute bottom-0 right-0 lg:w-96 w-1/3 pointer-events-none;
-        }
-    }
+					span {
+						@apply font-bold text-yellow text-5xl;
+					}
+				}
+			}
+		}
+
+		.badge {
+			@apply inline-block bg-white mb-8 px-4 py-2 rounded-full font-medium text-black text-sm;
+		}
+
+		.top-grid {
+			@apply gap-5 grid grid-cols-1 xl:grid-cols-12 mb-5 px-5 md:px-0;
+
+			> div {
+				@apply relative rounded-3xl h-72 overflow-hidden;
+			}
+
+			img {
+				@apply w-full h-full object-cover;
+			}
+		}
+
+		.bottom-grid {
+			@apply gap-5 grid grid-cols-1 md:grid-cols-12 px-5 md:px-0;
+
+			> div {
+				@apply relative rounded-3xl h-72 overflow-hidden;
+			}
+
+			img {
+				@apply w-full h-full object-cover;
+			}
+		}
+	}
+
+	#art {
+		@apply relative flex-col flex-center mt-20 p-5 min-h-dvh radial-gradient;
+
+		h2 {
+			@apply relative mb-8 font-modern-negra text-[#505050] md:text-[20vw] text-8xl text-center text-nowrap leading-none;
+		}
+
+		.content {
+			@apply flex md:flex-row flex-col justify-between gap-10 mt-40 md:mt-0 md:mb-16;
+		}
+
+		.cocktail-img {
+			@apply md:w-[60vw] w-full h-[50vh] md:h-[70vh] rounded-4xl overflow-hidden absolute top-0 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
+		}
+
+		.masked-container {
+			h2 {
+				@apply mt-32 mb-10 font-modern-negra text-white text-4xl md:text-5xl text-center;
+			}
+
+			div {
+				@apply opacity-0 md:px-0 px-5 space-y-5 absolute md:bottom-5 bottom-52 left-1/2 -translate-x-1/2;
+
+				h3 {
+					@apply w-80 md:w-full font-serif text-white text-2xl md:text-5xl text-center;
+				}
+
+				p {
+					@apply text-lg text-center;
+				}
+			}
+		}
+	}
+
+	#menu {
+		@apply relative mt-0 md:mt-40 px-5 2xl:px-0 py-20 w-full radial-gradient;
+
+		#m-left-leaf {
+			@apply object-contain absolute -bottom-20 left-0 md:w-fit w-1/3;
+		}
+
+		#m-right-leaf {
+			@apply object-contain absolute -top-40 right-0 md:w-fit w-1/4;
+		}
+
+		.cocktail-tabs {
+			@apply z-10 relative gap-10 md:gap-20 grid grid-cols-2 md:grid-cols-4 md:mx-auto mb-20 sm:mb-32 md:max-w-6xl;
+
+			button {
+				@apply pb-2 hover:border-yellow border-b-1 font-modern-negra hover:text-yellow text-xl md:text-3xl transition-colors cursor-pointer;
+			}
+		}
+
+		.content {
+			@apply relative flex flex-col justify-between items-center mx-auto container;
+
+			.arrows {
+				@apply absolute flex justify-between items-center w-full;
+
+				button {
+					@apply max-w-36 text-white hover:text-yellow transition-colors cursor-pointer;
+
+					span {
+						@apply hidden md:block font-modern-negra text-3xl leading-none;
+					}
+				}
+			}
+		}
+
+		.cocktail {
+			@apply flex-center mt-10;
+
+			img {
+				@apply h-[60vh] object-contain;
+			}
+		}
+
+		.recipe {
+			@apply bottom-0 lg:absolute flex max-md:flex-col justify-between md:items-center gap-10 w-full;
+
+			.info {
+				@apply space-y-4 lg:translate-y-20;
+
+				#title {
+					@apply max-w-40 font-modern-negra text-yellow text-3xl md:text-6xl;
+				}
+			}
+
+			.details {
+				@apply space-y-5 md:max-w-md text-left;
+
+				h2 {
+					@apply font-serif text-3xl md:text-5xl;
+				}
+
+				p {
+					@apply pe-5 md:text-lg;
+				}
+			}
+		}
+	}
+
+	#contact {
+		@apply relative mt-0 md:mt-20 px-4 w-full overflow-hidden text-center radial-gradient;
+
+		#f-left-leaf {
+			@apply absolute bottom-0 left-0 pointer-events-none lg:w-fit w-1/3;
+		}
+
+		#f-right-leaf {
+			@apply hidden lg:block top-0 right-0 absolute pointer-events-none;
+		}
+
+		.content {
+			@apply flex flex-col justify-between gap-10 mx-auto py-16 lg:py-14 2xl:py-32 min-h-dvh container;
+
+			h2 {
+				@apply font-modern-negra text-5xl lg:text-6xl 2xl:text-8xl translate-y-5 md:translate-y-0;
+			}
+
+			h3 {
+				@apply mb-2 text-base xl:text-base 2xl:text-lg uppercase;
+			}
+
+			p {
+				@apply text-sm lg:text-2xl 2xl:text-3xl;
+			}
+		}
+
+		.drink-img {
+			@apply absolute bottom-0 right-0 lg:w-96 w-1/3 pointer-events-none;
+		}
+	}
 }

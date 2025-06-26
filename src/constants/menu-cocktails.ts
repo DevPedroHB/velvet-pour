@@ -31,4 +31,4 @@ export const menuCocktails = [
 		description:
 			"Each cocktail is made with fresh ingredients and a passion for perfecting every pour, whether you're celebrating or simply relaxing.",
 	},
-] as const;
+];

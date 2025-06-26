@@ -48,12 +48,12 @@ export function Footer() {
 			<img
 				id={"f-right-leaf"}
 				src="/images/footer-right-leaf.png"
-				alt="leaf-right"
+				alt="Leaf right"
 			/>
 			<img
 				id={"f-left-leaf"}
 				src="/images/footer-left-leaf.png"
-				alt="leaf-left"
+				alt="Leaf left"
 			/>
 			<div className="content">
 				<h2>Where to Find Us</h2>

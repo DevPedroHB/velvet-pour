@@ -1,6 +1,7 @@
 import { navLinks } from "@/constants/nav-links";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Link } from "react-router";
 
 export function Navbar() {
 	useGSAP(() => {
@@ -26,10 +27,10 @@ export function Navbar() {
 	return (
 		<nav>
 			<div>
-				<a href="#home" className="flex items-center gap-2">
+				<Link to="/" className="flex items-center gap-2">
 					<img src="/images/logo.png" alt="Velvet Pour" />
 					<p>Velvet Pour</p>
-				</a>
+				</Link>
 				<ul>
 					{navLinks.map((link) => (
 						<li key={link.id}>

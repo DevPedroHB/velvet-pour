@@ -1,11 +1,13 @@
 import { menuCocktails } from "@/constants/menu-cocktails";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
+import { useStateList } from "react-use";
 
 export function Menu() {
 	const contentRef = useRef<HTMLDivElement>(null);
-	const [currentIndex, setCurrentIndex] = useState(0);
+	const { state, currentIndex, prev, next, setStateAt } =
+		useStateList(menuCocktails);
 
 	useGSAP(() => {
 		gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
@@ -41,15 +43,6 @@ export function Menu() {
 
 	const totalCocktails = menuCocktails.length;
 
-	const goToSlide = useCallback(
-		(index: number) => {
-			const newIndex = (index + totalCocktails) % totalCocktails;
-
-			setCurrentIndex(newIndex);
-		},
-		[totalCocktails],
-	);
-
 	const getCocktailAt = useCallback(
 		(indexOffset: number) => {
 			return menuCocktails[
@@ -59,7 +52,6 @@ export function Menu() {
 		[currentIndex, totalCocktails],
 	);
 
-	const currentCocktail = getCocktailAt(0);
 	const prevCocktail = getCocktailAt(-1);
 	const nextCocktail = getCocktailAt(1);
 
@@ -93,7 +85,7 @@ export function Menu() {
 							: "text-white/50 border-white/50"
 					}
         `}
-							onClick={() => goToSlide(index)}
+							onClick={() => setStateAt(index)}
 						>
 							{cocktail.name}
 						</button>
@@ -102,11 +94,7 @@ export function Menu() {
 			</nav>
 			<div className="content">
 				<div className="arrows">
-					<button
-						type="button"
-						className="text-left"
-						onClick={() => goToSlide(currentIndex - 1)}
-					>
+					<button type="button" className="text-left" onClick={prev}>
 						<span>{prevCocktail.name}</span>
 						<img
 							src="/images/right-arrow.png"
@@ -114,11 +102,7 @@ export function Menu() {
 							aria-hidden="true"
 						/>
 					</button>
-					<button
-						type="button"
-						className="text-left"
-						onClick={() => goToSlide(currentIndex + 1)}
-					>
+					<button type="button" className="text-left" onClick={next}>
 						<span>{nextCocktail.name}</span>
 						<img
 							src="/images/left-arrow.png"
@@ -129,7 +113,7 @@ export function Menu() {
 				</div>
 				<div className="cocktail">
 					<img
-						src={currentCocktail.image}
+						src={state.image}
 						alt={nextCocktail.name}
 						className="object-contain"
 					/>
@@ -137,11 +121,11 @@ export function Menu() {
 				<div className="recipe">
 					<div ref={contentRef} className="info">
 						<p>Recipe for:</p>
-						<p id={"title"}>{currentCocktail.name}</p>
+						<p id={"title"}>{state.name}</p>
 					</div>
 					<div className="details">
-						<h2>{currentCocktail.title}</h2>
-						<p>{currentCocktail.description}</p>
+						<h2>{state.title}</h2>
+						<p>{state.description}</p>
 					</div>
 				</div>
 			</div>

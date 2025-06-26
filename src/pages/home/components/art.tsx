@@ -2,10 +2,10 @@ import { featureLists } from "@/constants/feature-lists";
 import { goodLists } from "@/constants/good-lists";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useMediaQuery } from "react-responsive";
+import { useMedia } from "react-use";
 
 export function Art() {
-	const isMobile = useMediaQuery({ maxWidth: 767 });
+	const isMobile = useMedia("(max-width: 48rem)");
 
 	useGSAP(() => {
 		const start = isMobile ? "top 20%" : "top top";
