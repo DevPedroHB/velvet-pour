@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar";
+import { About } from "./components/about";
 import { Cocktails } from "./components/cocktails";
 import { Hero } from "./components/hero";
 
@@ -8,6 +9,7 @@ export default function Home() {
 			<Navbar />
 			<Hero />
 			<Cocktails />
+			<About />
 		</main>
 	);
 }
