@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { About } from "./components/about";
 import { Art } from "./components/art";
@@ -14,6 +15,7 @@ export default function Home() {
 			<About />
 			<Art />
 			<Menu />
+			<Footer />
 		</main>
 	);
 }
