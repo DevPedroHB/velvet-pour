@@ -1,9 +1,7 @@
 export default function Home() {
 	return (
-		<main className="flex justify-center items-center bg-gray-100 min-h-svh">
-			<h1 className="font-extrabold text-4xl text-center text-balance tracking-tight scroll-m-20">
-				Page Home
-			</h1>
-		</main>
+		<div className="flex-center h-screen">
+			<h1 className="text-indigo-300 text-4xl">Hello, GSAP!</h1>
+		</div>
 	);
 }
