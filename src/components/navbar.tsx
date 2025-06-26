@@ -13,9 +13,7 @@ export function Navbar() {
 
 		navTween.fromTo(
 			"nav",
-			{
-				backgroundColor: "transparent",
-			},
+			{ backgroundColor: "transparent" },
 			{
 				backgroundColor: "#00000050",
 				backgroundFilter: "blur(10px)",
@@ -33,13 +31,11 @@ export function Navbar() {
 					<p>Velvet Pour</p>
 				</a>
 				<ul>
-					{navLinks.map((link) => {
-						return (
-							<li key={link.id}>
-								<a href={link.id}>{link.title}</a>
-							</li>
-						);
-					})}
+					{navLinks.map((link) => (
+						<li key={link.id}>
+							<a href={`#${link.id}`}>{link.title}</a>
+						</li>
+					))}
 				</ul>
 			</div>
 		</nav>
